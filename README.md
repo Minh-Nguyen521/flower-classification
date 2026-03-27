@@ -3,7 +3,7 @@
 # dataset
 https://www.kaggle.com/datasets/imsparsh/flowers-dataset
 
-# Accuracy
+# Confusion Matrix
 ![confusion_matrix](models/confusion_matrix.png)
 
 # Installation

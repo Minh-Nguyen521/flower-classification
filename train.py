@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -35,8 +35,13 @@ def train_and_evaluate(X, y):
     )
     clf.fit(X_train_s, y_train)
 
+    train_acc = accuracy_score(y_train, clf.predict(X_train_s))
     y_pred = clf.predict(X_val_s)
-    print("\nValidation results (80/20 split):")
+    val_acc = accuracy_score(y_val, y_pred)
+
+    print(f"\nTrain accuracy : {train_acc:.4f} ({train_acc:.1%})")
+    print(f"Val accuracy   : {val_acc:.4f} ({val_acc:.1%})")
+    print("\nValidation classification report:")
     print(classification_report(y_val, y_pred, target_names=CLASSES))
 
     return scaler, clf, y_val, y_pred
