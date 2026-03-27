@@ -1,8 +1,4 @@
-"""Stage 1: Extract EfficientNet_B0 embeddings and cache to disk.
-
-Run once; subsequent runs skip extraction if cache exists.
-Delete features/ to force re-extraction.
-"""
+"""Extract feature using EfficientNet_B0 and cache to disk"""
 
 import numpy as np
 import torch
